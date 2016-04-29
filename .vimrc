@@ -121,9 +121,8 @@ set matchtime=1
 set cursorline
 set autoindent
 set cindent
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set smartcase
 set smartindent
