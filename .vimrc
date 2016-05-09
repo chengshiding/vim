@@ -70,7 +70,10 @@ nmap <silent> <leader>ll :LUBufs<cr>
 nmap <silent> <leader>lw :LUWalk<cr>
 "------------------------------------------------
 " Cscope setting
-"set cscopequickfix=s-,c-,d-,i-,t-,e-
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+":cnext
+":cprev
+":cw
 nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
