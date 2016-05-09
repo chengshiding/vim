@@ -1,5 +1,5 @@
 " My Var
-let g:CSCOPE_DB="$HOME/word/cscope.out"
+"let g:PRO_PATH="$HOME/work/"
 "-------------------------------------------------
 " encoding
 set encoding=utf-8
@@ -32,7 +32,7 @@ Bundle 'vim-BookMarks'
 Bundle 'AutoComplPop'
 Bundle 'omnicppcomplete'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
 Bundle 'derekwyatt/vim-fswitch'
@@ -41,6 +41,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'lookupfile'
 Bundle 'genutils'
 Bundle 'easymotion/vim-easymotion'
+Bundle 'tczengming/autoload_cscope.vim'
 "-------------------------------------------------
 "powerline{
  set guifont=PowerlineSymbols\ for\ Powerline
@@ -49,17 +50,16 @@ Bundle 'easymotion/vim-easymotion'
  let g:Powerline_symbols = 'fancy'
  "}
 "------------------------------------------------
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+nmap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
 set tags=tags;/
 "------------------------------------------------
 " lookupfile setting
-" """"""""""""""""""""""""""""""
 let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
 let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
 let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
 let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
 let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
-if filereadable("./filenametags")               "设置tag文件的名字
+if filereadable("./filenametags")
   let g:LookupFile_TagExpr = '"./filenametags"'
 endif
 " 映射LookupFile为,lk
@@ -70,44 +70,43 @@ nmap <silent> <leader>ll :LUBufs<cr>
 nmap <silent> <leader>lw :LUWalk<cr>
 "------------------------------------------------
 " Cscope setting
-" """"""""""""""""""""""""""""""
-"if has("cscope") && filereadable("/usr/bin/cscope")
-  "set csprg=/usr/bin/cscope       "指定用来执行cscope的命令
-  "set csto=0                      "设置cstag命令查找次序：0先找cscope数据库再找标签文件；1先找标签文件再找cscope数据库
-  "set cst                         "同时搜索cscope数据库和标签文件
-  "set cscopequickfix=s-,c-,d-,i-,t-,e-  "使用QuickFix窗口来显示cscope查找结果
-  "set nocsverb
-  "if filereadable("cscope.out")   "若当前目录下存在cscope数据库，添加该数据库到vim
-    "echo "run cs add cscope.out"
-    "cs add cscope.out
-  "elseif $CSCOPE_DB != ""         "否则只要环境变量CSCOPE_DB不为空，则添加其指定的数据库到vim
-    "echo "run cs add $CSCOPE_DB"
-    "cs add $CSCOPE_DB
-  "endif
-  "set csverb
-"endif
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-"echo "run cs add" g:CSCOPE_DB
-cs add g:CSCOPE_DB
+"set cscopequickfix=s-,c-,d-,i-,t-,e-
+nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>f :cs find f <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
+nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------
 nmap <F3> :NERDTreeToggle  <CR>
 let NERDTreeWinSize = 24
 let g:NERDTreeDirArrows = 0
 let NERDTreeShowBookmarks=1
+" 删除文件时自动删除文件对应 buffer
+let NERDTreeAutoDeleteBuffer=1
+" 显示隐藏文件
+let NERDTreeShowHidden=1
 "------------------------------------------------
-nmap <F2> :BufExplorer  <CR>
-nmap <F4> :TagbarToggle  <CR>
-nmap <F7> :FSSplitLeft  <CR>
+nmap <F2> :BufExplorer <CR>
+nmap <F4> :TagbarToggle <CR>
+nmap <F7> :FSSplitLeft <CR>
 "------------------------------------------------
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git)$',
+  \ 'file': '\v\.(log|jpg|png|jpeg)$',
+  \ }
 map <F6> :CtrlPFunky <CR>
 let g:ctrlp_extensions = ['funky']
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_mruf_max=500
+let g:ctrlp_max_height = 20
+let g:ctrlp_by_filename = 1
 "------------------------------------------------
 let g:vbookmark_bookmarkSaveFile = $HOME . '/.vimbookmark'
 "------------------------------------------------
 filetype plugin on
-filetype indent on
 syntax on
 filetype on
 set hlsearch
@@ -119,14 +118,32 @@ set mouse=v
 set showmatch
 set matchtime=1
 set cursorline
-set autoindent
-set cindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
 set smartcase
-set smartindent
 set autowrite
 set confirm
-set autoread
-
+"set autoread
+set noswapfile
+" 自适应不同语言的智能缩进
+filetype indent on
+" 将制表符扩展为空格
+set expandtab
+" 设置编辑时制表符占用空格数
+set tabstop=4
+" 设置格式化时制表符占用空格数
+set shiftwidth=4
+" 让 vim 把连续数量的空格视为一个制表符
+set softtabstop=4
+" 粘贴代码时取消自动缩进
+set pastetoggle=<F11>
+" 多窗口改变大小
+nmap    w=  :resize +3<CR>
+nmap    w-  :resize -3<CR>
+nmap    w,  :vertical resize -3<CR>
+nmap    w.  :vertical resize +3<CR>
+"把 <leader> 设置成空格
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
+" Fast saving
+nmap <leader>w :w!<cr>
+" A buffer becomes hidden when it is abandoned
+set hid
