@@ -25,7 +25,6 @@ filetype plugin indent on   " required!
 syntax enable
 set background=dark
 "colorscheme solarized
-colorscheme default
 "-------------------------------------------------
 " My Bundles here:
 Bundle 'The-NERD-tree'
@@ -103,7 +102,7 @@ nmap <F7> :FSSplitLeft <CR>
 "------------------------------------------------
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git)$',
-  \ 'file': '\v\.(log|jpg|png|jpeg)$',
+  \ 'file': '\v\.(bmp|gif|jpg|png|jpeg)$',
   \ }
 map <F6> :CtrlPFunky <CR>
 let g:ctrlp_extensions = ['funky']
