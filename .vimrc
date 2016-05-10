@@ -129,6 +129,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
 nmap <silent> <Leader>v :IndentGuidesToggl<CR>
 "------------------------------------------------
 filetype plugin on
+syntax enable
 syntax on
 filetype on
 set hlsearch
