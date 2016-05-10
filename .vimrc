@@ -1,5 +1,8 @@
 " My Var
 "let g:PRO_PATH="$HOME/work/"
+"把 <leader> 设置成空格
+let mapleader = "\<Space>"
+let g:mapleader = "\<Space>"
 "-------------------------------------------------
 " encoding
 set encoding=utf-8
@@ -22,6 +25,7 @@ filetype plugin indent on   " required!
 syntax enable
 set background=dark
 "colorscheme solarized
+colorscheme default
 "-------------------------------------------------
 " My Bundles here:
 Bundle 'The-NERD-tree'
@@ -42,6 +46,7 @@ Bundle 'lookupfile'
 Bundle 'genutils'
 Bundle 'easymotion/vim-easymotion'
 Bundle 'tczengming/autoload_cscope.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 "-------------------------------------------------
 "powerline{
  set guifont=PowerlineSymbols\ for\ Powerline
@@ -63,11 +68,11 @@ if filereadable("./filenametags")
   let g:LookupFile_TagExpr = '"./filenametags"'
 endif
 " 映射LookupFile为,lk
-nmap <silent> <leader>lk :LUTags<cr>
+nmap <silent> <leader>lk :LUTags<CR>
 " 映射LUBufs为,ll
-nmap <silent> <leader>ll :LUBufs<cr>
+nmap <silent> <leader>ll :LUBufs<CR>
 " 映射LUWalk为,lw
-nmap <silent> <leader>lw :LUWalk<cr>
+nmap <silent> <leader>lw :LUWalk<CR>
 "------------------------------------------------
 " Cscope setting
 set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -83,7 +88,7 @@ nmap <C-@>f :cs find f <C-R>=expand("<cword>")<CR><CR>
 nmap <C-@>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
 nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------
-nmap <F3> :NERDTreeToggle  <CR>
+nmap <F3> :NERDTreeToggle <CR>
 let NERDTreeWinSize = 24
 let g:NERDTreeDirArrows = 0
 let NERDTreeShowBookmarks=1
@@ -108,6 +113,20 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_by_filename = 1
 "------------------------------------------------
 let g:vbookmark_bookmarkSaveFile = $HOME . '/.vimbookmark'
+"------------------------------------------------
+" vim-indent-guides
+"不随 vim 自启动
+let g:indent_guides_enable_on_vim_startup=0
+" 从第一层开始可视化显示缩进
+let g:indent_guides_start_level=1
+" 色块宽度
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
+"hi IndentGuidesOdd guibg=red ctermbg=8
+"hi IndentGuidesEven guibg=green ctermbg=2
+nmap <silent> <Leader>v :IndentGuidesToggl<CR>
 "------------------------------------------------
 filetype plugin on
 syntax on
@@ -139,14 +158,11 @@ set softtabstop=4
 " 粘贴代码时取消自动缩进
 set pastetoggle=<F11>
 " 多窗口改变大小
-nmap    w=  :resize +3<CR>
-nmap    w-  :resize -3<CR>
-nmap    w,  :vertical resize -3<CR>
-nmap    w.  :vertical resize +3<CR>
-"把 <leader> 设置成空格
-let mapleader = "\<Space>"
-let g:mapleader = "\<Space>"
+nmap w= :resize +3<CR>
+nmap w- :resize -3<CR>
+nmap w, :vertical resize -3<CR>
+nmap w. :vertical resize +3<CR>
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <leader>w :w!<CR>
 " A buffer becomes hidden when it is abandoned
 set hid
