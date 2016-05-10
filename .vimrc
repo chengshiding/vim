@@ -116,7 +116,7 @@ let g:vbookmark_bookmarkSaveFile = $HOME . '/.vimbookmark'
 "------------------------------------------------
 " vim-indent-guides
 "不随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=0
+let g:indent_guides_enable_on_vim_startup=1
 " 从第一层开始可视化显示缩进
 let g:indent_guides_start_level=1
 " 色块宽度
