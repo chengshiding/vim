@@ -24,8 +24,9 @@ filetype plugin indent on   " required!
 "-------------------------------------------------
 syntax enable
 set background=dark
-colorscheme default 
-"colorscheme solarized
+"colorscheme default 
+colorscheme 256-jungle
+let g:solarized_termcolors=256
 "-------------------------------------------------
 " My Bundles here:
 Bundle 'The-NERD-tree'
@@ -55,7 +56,7 @@ Bundle 'nathanaelkane/vim-indent-guides'
  let g:Powerline_symbols = 'fancy'
  "}
 "------------------------------------------------
-nmap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
+nnoremap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
 set tags=tags;/
 
 "function! LoadLookUpTag()
@@ -77,27 +78,27 @@ if filereadable("./filenametags")
   let g:LookupFile_TagExpr = '"./filenametags"'
 endif
 " 映射LookupFile为,lk
-nmap <silent> <leader>lk :LUTags<CR>
+nnoremap <silent> <leader>lk :LUTags<CR>
 " 映射LUBufs为,ll
-nmap <silent> <leader>ll :LUBufs<CR>
+nnoremap <silent> <leader>ll :LUBufs<CR>
 " 映射LUWalk为,lw
-nmap <silent> <leader>lw :LUWalk<CR>
+nnoremap <silent> <leader>lw :LUWalk<CR>
 "------------------------------------------------
 " Cscope setting
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 ":cnext
 ":cprev
 ":cw
-nmap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>f :cs find f <C-R>=expand("<cword>")<CR><CR>
-nmap <C-@>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
-nmap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-@>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-@>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-@>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-@>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-@>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-@>f :cs find f <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-@>i :cs find i ^<C-R>=expand("<cword>")<CR>$<CR>
+nnoremap <C-@>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 "------------------------------------------------
-nmap <F3> :NERDTreeToggle <CR>
+nnoremap <F3> :NERDTreeToggle <CR>
 let NERDTreeWinSize = 24
 let g:NERDTreeDirArrows = 0
 let NERDTreeShowBookmarks=1
@@ -106,9 +107,9 @@ let NERDTreeAutoDeleteBuffer=1
 " 显示隐藏文件
 let NERDTreeShowHidden=1
 "------------------------------------------------
-nmap <F2> :BufExplorer <CR>
-nmap <F4> :TagbarToggle <CR>
-nmap <F7> :FSSplitLeft <CR>
+nnoremap <F2> :BufExplorer <CR>
+nnoremap <F4> :TagbarToggle <CR>
+nnoremap <F7> :FSSplitLeft <CR>
 "------------------------------------------------
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git)$',
@@ -133,9 +134,21 @@ let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
-"hi IndentGuidesOdd guibg=red ctermbg=8
-"hi IndentGuidesEven guibg=green ctermbg=2
-nmap <silent> <Leader>v :IndentGuidesToggl<CR>
+hi IndentGuidesOdd guibg=red ctermbg=8
+hi IndentGuidesEven guibg=green ctermbg=2
+nnoremap <silent> <Leader>v :IndentGuidesToggl<CR>
+"------------------------------------------------
+" 粘贴代码时取消自动缩进
+set pastetoggle=<F11>
+" 多窗口改变大小
+nnoremap w= :resize +3<CR>
+nnoremap w- :resize -3<CR>
+nnoremap w, :vertical resize -3<CR>
+nnoremap w. :vertical resize +3<CR>
+" Fast saving
+nnoremap <leader>w :w!<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 "------------------------------------------------
 filetype plugin on
 syntax enable
@@ -165,14 +178,5 @@ set tabstop=4
 set shiftwidth=4
 " 让 vim 把连续数量的空格视为一个制表符
 set softtabstop=4
-" 粘贴代码时取消自动缩进
-set pastetoggle=<F11>
-" 多窗口改变大小
-nmap w= :resize +3<CR>
-nmap w- :resize -3<CR>
-nmap w, :vertical resize -3<CR>
-nmap w. :vertical resize +3<CR>
-" Fast saving
-nmap <leader>w :w!<CR>
 " A buffer becomes hidden when it is abandoned
 set hid
