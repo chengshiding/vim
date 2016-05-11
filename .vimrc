@@ -57,6 +57,15 @@ Bundle 'nathanaelkane/vim-indent-guides'
 "------------------------------------------------
 nmap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
 set tags=tags;/
+
+"function! LoadLookUpTag()
+"	 let f = getcwd()
+"     let lookfile = $HOME"/tags/lookuptags/".substitute(f,'/','_','g').".filenametags"
+"     if filereadable(lookfile)
+"          let g:LookupFile_TagExpr = string(lookfile)
+"     endif
+"endfunction
+"call LoadLookUpTag()
 "------------------------------------------------
 " lookupfile setting
 let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
