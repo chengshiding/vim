@@ -49,6 +49,7 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'tczengming/autoload_cscope.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Yggdroot/indentLine'
+"easytags 自动更新tags
 "-------------------------------------------------
 " Vim
 let g:indentLine_color_term = 239
@@ -85,7 +86,7 @@ set tags=tags;/
 " lookupfile setting
 let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
 let g:LookupFile_PreserveLastPattern = 0        "不保存上次查找的字符串
-let g:LookupFile_PreservePatternHistory = 1     "保存查找历史
+let g:LookupFile_PreservePatternHistory = 0     "保存查找历史
 let g:LookupFile_AlwaysAcceptFirst = 1          "回车打开第一个匹配项目
 let g:LookupFile_AllowNewFiles = 0              "不允许创建不存在的文件
 if filereadable("./filenametags")
@@ -154,6 +155,7 @@ nnoremap <silent> <Leader>v :IndentGuidesToggl<CR>
 "------------------------------------------------
 " 粘贴代码时取消自动缩进
 set pastetoggle=<F11>
+nnoremap <leader>r :make<CR>
 " 多窗口改变大小
 nnoremap w= :resize +3<CR>
 nnoremap w- :resize -3<CR>
@@ -163,6 +165,10 @@ nnoremap w. :vertical resize +3<CR>
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+inoremap jk <esc>
+inoremap <esc> <nop>
+noremap <Up> <nop>
+noremap <Down> <nop>
 "------------------------------------------------
 filetype plugin on
 syntax enable
