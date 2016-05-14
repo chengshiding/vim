@@ -157,10 +157,10 @@ nnoremap <silent> <Leader>v :IndentGuidesToggl<CR>
 set pastetoggle=<F11>
 nnoremap <leader>r :make<CR>
 " 多窗口改变大小
-nnoremap w= :resize +3<CR>
-nnoremap w- :resize -3<CR>
-nnoremap w, :vertical resize -3<CR>
-nnoremap w. :vertical resize +3<CR>
+nnoremap <leader>= :resize +3<CR>
+nnoremap <leader>- :resize -3<CR>
+nnoremap <leader>, :vertical resize -3<CR>
+nnoremap <leader>. :vertical resize +3<CR>
 " Fast saving
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
@@ -169,6 +169,10 @@ inoremap jk <esc>
 inoremap <esc> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
+inoremap <C-g> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
 "------------------------------------------------
 filetype plugin on
 syntax enable
