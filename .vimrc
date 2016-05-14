@@ -24,7 +24,6 @@ filetype plugin indent on   " required!
 "-------------------------------------------------
 syntax enable
 set background=dark
-"colorscheme default 
 colorscheme 256-jungle
 let g:solarized_termcolors=256
 "-------------------------------------------------
@@ -50,19 +49,6 @@ Bundle 'tczengming/autoload_cscope.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Yggdroot/indentLine'
 "easytags 自动更新tags
-"-------------------------------------------------
-" Vim
-let g:indentLine_color_term = 239
-" GVim
-let g:indentLine_color_gui = '#A4E57E'
-" none X terminal
-let g:indentLine_color_tty_light = 7 " (default: 4)
-let g:indentLine_color_dark = 1 " (default: 2)
-let g:indentLine_char = 'c'
-let g:indentLine_concealcursor = 'vc' " (default 'inc')
-let g:indentLine_conceallevel = 0 " (default 2)
-let g:indentLine_enabled = 1
-nnoremap <silent> <Leader>c :IndentLinesToggle<CR>
 "-------------------------------------------------
 "powerline{
  set guifont=PowerlineSymbols\ for\ Powerline
@@ -138,10 +124,14 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_by_filename = 1
 "------------------------------------------------
 let g:vbookmark_bookmarkSaveFile = $HOME . '/.vimbookmark'
+"-------------------------------------------------
+" indentLine
+let g:indentLine_enabled = 1
+nnoremap <Leader>v1 :IndentGuidesDisable<CR>:IndentLinesToggle<CR>
 "------------------------------------------------
 " vim-indent-guides
 "不随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup= 0
 " 从第一层开始可视化显示缩进
 let g:indent_guides_start_level=1
 " 色块宽度
@@ -151,8 +141,10 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
 hi IndentGuidesOdd guibg=red ctermbg=8
 hi IndentGuidesEven guibg=green ctermbg=2
-nnoremap <silent> <Leader>v :IndentGuidesToggl<CR>
+nnoremap <silent> <Leader>v2 :IndentLinesDisable<CR>:IndentGuidesToggle<CR>
 "------------------------------------------------
+" nnoremap <F2> :set number! number?<CR>
+" nnoremap <F8> :set hlsearch! hlsearch?<CR>
 " 粘贴代码时取消自动缩进
 set pastetoggle=<F11>
 nnoremap <leader>r :make<CR>
@@ -167,6 +159,8 @@ nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 inoremap jk <esc>
 inoremap <esc> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
 inoremap <C-g> <Left>
