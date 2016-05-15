@@ -7,9 +7,6 @@ let g:mapleader = "\<Space>"
 " encoding
 set encoding=utf-8
 "-------------------------------------------------
-"set nocompatible
-"call pathogen#infect()
-"-------------------------------------------------
 " vundle
 " install
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -24,6 +21,7 @@ filetype plugin indent on   " required!
 "-------------------------------------------------
 syntax enable
 set background=dark
+"colorscheme default 
 colorscheme 256-jungle
 let g:solarized_termcolors=256
 "-------------------------------------------------
@@ -40,7 +38,6 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
 Bundle 'derekwyatt/vim-fswitch'
-Bundle 'altercation/vim-colors-solarized'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'lookupfile'
 Bundle 'genutils'
@@ -172,7 +169,9 @@ filetype plugin on
 syntax enable
 syntax on
 filetype on
+" 高亮搜索
 set hlsearch
+" 搜索时实时匹配
 set incsearch
 set ignorecase
 set nu
@@ -184,7 +183,7 @@ set cursorline
 set smartcase
 set autowrite
 set confirm
-"set autoread
+set autoread
 set noswapfile
 " 自适应不同语言的智能缩进
 filetype indent on
