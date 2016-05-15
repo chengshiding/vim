@@ -54,17 +54,8 @@ Bundle 'Yggdroot/indentLine'
  let g:Powerline_symbols = 'fancy'
  "}
 "------------------------------------------------
-nnoremap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
+nnoremap <F12> :!$HOME/.vim/tools/lookfile.sh<CR>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
 set tags=tags;/
-
-"function! LoadLookUpTag()
-"	 let f = getcwd()
-"     let lookfile = $HOME"/tags/lookuptags/".substitute(f,'/','_','g').".filenametags"
-"     if filereadable(lookfile)
-"          let g:LookupFile_TagExpr = string(lookfile)
-"     endif
-"endfunction
-"call LoadLookUpTag()
 "------------------------------------------------
 " lookupfile setting
 let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
@@ -144,7 +135,8 @@ nnoremap <silent> <Leader>v2 :IndentLinesDisable<CR>:IndentGuidesToggle<CR>
 " nnoremap <F8> :set hlsearch! hlsearch?<CR>
 " 粘贴代码时取消自动缩进
 set pastetoggle=<F11>
-nnoremap <leader>r :make<CR>
+" nnoremap <leader>r :make<CR>
+nnoremap <leader>r :!make<CR>
 " 多窗口改变大小
 nnoremap <leader>= :resize +3<CR>
 nnoremap <leader>- :resize -3<CR>
