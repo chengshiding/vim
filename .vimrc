@@ -45,13 +45,13 @@ Bundle 'tczengming/autoload_cscope.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Yggdroot/indentLine'
 "Bundle 'Lokaltog/vim-powerline'
-Bundle 'powerline/fonts'
+"Bundle 'powerline/fonts'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 "easytags 自动更新tags
 "-------------------------------------------------
 "airline{
-" let g:airline_powerline_fonts = 1
+ let g:airline_powerline_fonts = 1
 "}
 "-------------------------------------------------
 "powerline{
