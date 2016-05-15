@@ -33,7 +33,6 @@ Bundle 'minibufexpl.vim'
 Bundle 'vim-BookMarks'
 Bundle 'AutoComplPop'
 Bundle 'omnicppcomplete'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
@@ -45,14 +44,22 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'tczengming/autoload_cscope.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Yggdroot/indentLine'
+"Bundle 'Lokaltog/vim-powerline'
+Bundle 'powerline/fonts'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 "easytags 自动更新tags
 "-------------------------------------------------
+"airline{
+" let g:airline_powerline_fonts = 1
+"}
+"-------------------------------------------------
 "powerline{
- set guifont=PowerlineSymbols\ for\ Powerline
- set nocompatible
- set t_Co=256
- let g:Powerline_symbols = 'fancy'
- "}
+" set guifont=PowerlineSymbols\ for\ Powerline
+ "set nocompatible
+ "set t_Co=256
+ "let g:Powerline_symbols = 'fancy'
+"}
 "------------------------------------------------
 nnoremap <F12> :!$HOME/.vim/tools/lookfile.sh<CR>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
 set tags=tags;/
