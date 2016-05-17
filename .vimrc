@@ -52,6 +52,9 @@ Bundle 'vim-airline/vim-airline-themes'
 "-------------------------------------------------
 "airline{
  let g:airline_powerline_fonts = 1
+ " 关闭状态显示空白符号计数,这个对我用处不大"
+ let g:airline#extensions#whitespace#enabled = 0
+ let g:airline#extensions#whitespace#symbol = '!'
 "}
 "-------------------------------------------------
 "powerline{
@@ -153,6 +156,7 @@ nnoremap <leader>. :vertical resize +3<CR>
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+autocmd! bufwritepost .vimrc source %    " .vimrc修改之后自动加载
 inoremap jk <esc>
 inoremap <esc> <nop>
 noremap <Left> <nop>
