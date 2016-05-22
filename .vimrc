@@ -7,9 +7,6 @@ let g:mapleader = "\<Space>"
 " encoding
 set encoding=utf-8
 "-------------------------------------------------
-"set nocompatible
-"call pathogen#infect()
-"-------------------------------------------------
 " vundle
 " install
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -35,12 +32,10 @@ Bundle 'minibufexpl.vim'
 Bundle 'vim-BookMarks'
 Bundle 'AutoComplPop'
 Bundle 'omnicppcomplete'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
 Bundle 'derekwyatt/vim-fswitch'
-Bundle 'altercation/vim-colors-solarized'
 "Bundle 'Valloric/YouCompleteMe'
 Bundle 'lookupfile'
 Bundle 'genutils'
@@ -48,39 +43,28 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'tczengming/autoload_cscope.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Yggdroot/indentLine'
+"Bundle 'Lokaltog/vim-powerline'
+"Bundle 'powerline/fonts'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 "easytags 自动更新tags
 "-------------------------------------------------
-" Vim
-let g:indentLine_color_term = 239
-" GVim
-let g:indentLine_color_gui = '#A4E57E'
-" none X terminal
-let g:indentLine_color_tty_light = 7 " (default: 4)
-let g:indentLine_color_dark = 1 " (default: 2)
-let g:indentLine_char = 'c'
-let g:indentLine_concealcursor = 'vc' " (default 'inc')
-let g:indentLine_conceallevel = 0 " (default 2)
-let g:indentLine_enabled = 1
-nnoremap <silent> <Leader>c :IndentLinesToggle<CR>
+"airline{
+ let g:airline_powerline_fonts = 1
+ " 关闭状态显示空白符号计数,这个对我用处不大"
+ let g:airline#extensions#whitespace#enabled = 0
+ let g:airline#extensions#whitespace#symbol = '!'
+"}
 "-------------------------------------------------
 "powerline{
- set guifont=PowerlineSymbols\ for\ Powerline
- set nocompatible
- set t_Co=256
- let g:Powerline_symbols = 'fancy'
- "}
+" set guifont=PowerlineSymbols\ for\ Powerline
+ "set nocompatible
+ "set t_Co=256
+ "let g:Powerline_symbols = 'fancy'
+"}
 "------------------------------------------------
-nnoremap <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
+nnoremap <F12> :!$HOME/.vim/tools/lookfile.sh<CR>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
 set tags=tags;/
-
-"function! LoadLookUpTag()
-"	 let f = getcwd()
-"     let lookfile = $HOME"/tags/lookuptags/".substitute(f,'/','_','g').".filenametags"
-"     if filereadable(lookfile)
-"          let g:LookupFile_TagExpr = string(lookfile)
-"     endif
-"endfunction
-"call LoadLookUpTag()
 "------------------------------------------------
 " lookupfile setting
 let g:LookupFile_MinPatLength = 2               "最少输入2个字符才开始查找
@@ -137,10 +121,14 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_by_filename = 1
 "------------------------------------------------
 let g:vbookmark_bookmarkSaveFile = $HOME . '/.vimbookmark'
+"-------------------------------------------------
+" indentLine
+let g:indentLine_enabled = 1
+nnoremap <Leader>v1 :IndentGuidesDisable<CR>:IndentLinesToggle<CR>
 "------------------------------------------------
 " vim-indent-guides
 "不随 vim 自启动
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup= 0
 " 从第一层开始可视化显示缩进
 let g:indent_guides_start_level=1
 " 色块宽度
@@ -150,30 +138,42 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=8
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=2
 hi IndentGuidesOdd guibg=red ctermbg=8
 hi IndentGuidesEven guibg=green ctermbg=2
-nnoremap <silent> <Leader>v :IndentGuidesToggl<CR>
+nnoremap <silent> <Leader>v2 :IndentLinesDisable<CR>:IndentGuidesToggle<CR>
 "------------------------------------------------
+" nnoremap <F2> :set number! number?<CR>
+" nnoremap <F8> :set hlsearch! hlsearch?<CR>
 " 粘贴代码时取消自动缩进
 set pastetoggle=<F11>
-nnoremap <leader>r :make<CR>
+" nnoremap <leader>r :make<CR>
+nnoremap <leader>r :!make<CR>
 " 多窗口改变大小
-nnoremap w= :resize +3<CR>
-nnoremap w- :resize -3<CR>
-nnoremap w, :vertical resize -3<CR>
-nnoremap w. :vertical resize +3<CR>
+nnoremap <leader>= :resize +3<CR>
+nnoremap <leader>- :resize -3<CR>
+nnoremap <leader>, :vertical resize -3<CR>
+nnoremap <leader>. :vertical resize +3<CR>
 " Fast saving
 nnoremap <leader>w :w!<CR>
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+autocmd! bufwritepost .vimrc source %    " .vimrc修改之后自动加载
 inoremap jk <esc>
 inoremap <esc> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
 noremap <Up> <nop>
 noremap <Down> <nop>
+inoremap <C-g> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
 "------------------------------------------------
 filetype plugin on
 syntax enable
 syntax on
 filetype on
+" 高亮搜索
 set hlsearch
+" 搜索时实时匹配
 set incsearch
 set ignorecase
 set nu
@@ -185,7 +185,7 @@ set cursorline
 set smartcase
 set autowrite
 set confirm
-"set autoread
+set autoread
 set noswapfile
 " 自适应不同语言的智能缩进
 filetype indent on
