@@ -15,7 +15,8 @@ filetype off               " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'      " required!
+" required!
+Bundle 'gmarik/vundle'
 filetype plugin indent on   " required!
 "-------------------------------------------------
 syntax enable
