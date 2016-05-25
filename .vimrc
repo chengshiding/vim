@@ -21,7 +21,7 @@ filetype plugin indent on   " required!
 "-------------------------------------------------
 syntax enable
 set background=dark
-"colorscheme default 
+"colorscheme night
 colorscheme 256-jungle
 let g:solarized_termcolors=256
 "-------------------------------------------------
