@@ -20,10 +20,11 @@ Bundle 'gmarik/vundle'
 filetype plugin indent on   " required!
 "-------------------------------------------------
 syntax enable
+set t_Co=256
 set background=dark
 "colorscheme night
-colorscheme 256-jungle
-let g:solarized_termcolors=256
+"colorscheme 256-jungle
+colorscheme molokai 
 "-------------------------------------------------
 " My Bundles here:
 Bundle 'The-NERD-tree'
@@ -48,7 +49,15 @@ Bundle 'Yggdroot/indentLine'
 "Bundle 'powerline/fonts'
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
+Bundle 'tomasr/molokai'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'ervandew/supertab'
 "easytags 自动更新tags
+"-------------------------------------------------
+" molokai configure
+let g:molokai_original = 1
+"let g:rehash256 = 1
 "-------------------------------------------------
 "airline{
  let g:airline_powerline_fonts = 1
