@@ -8,6 +8,7 @@ let g:colors_name="256-jungle"
 let python_highlight_all = 1
 let c_gnu = 1
 
+
 hi Normal	    ctermfg=253         ctermbg=234         cterm=None
 hi Cursor       ctermfg=253         ctermbg=57          cterm=None
 hi SpecialKey	ctermfg=70          ctermbg=None        cterm=None
@@ -47,8 +48,5 @@ hi VertSplit    ctermfg=239         ctermbg=239         cterm=None
 hi TabLine      ctermfg=245         ctermbg=239         cterm=None
 hi TabLineFill  ctermfg=239         ctermbg=239
 hi TabLineSel   ctermfg=104         ctermbg=236         cterm=Bold
-
-hi CursorLine                       ctermbg=236         cterm=none
-hi CursorLineNr ctermfg=160         ctermbg=233         cterm=Bold
-hi Function     ctermfg=118
+hi CursorLine                       ctermbg=233         cterm=none
 "vim: sw=4
