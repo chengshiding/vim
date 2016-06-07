@@ -10,7 +10,7 @@ set encoding=utf-8
 " vundle
 " install
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-set nocompatible          " be iMproved
+set nocompatible           " be iMproved
 filetype off               " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -37,11 +37,11 @@ Bundle 'minibufexpl.vim'
 Bundle 'vim-BookMarks'
 Bundle 'AutoComplPop'
 Bundle 'omnicppcomplete'
+Bundle 'ervandew/supertab'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
 Bundle 'derekwyatt/vim-fswitch'
-"Bundle 'Valloric/YouCompleteMe'
 Bundle 'lookupfile'
 Bundle 'genutils'
 Bundle 'easymotion/vim-easymotion'
@@ -55,7 +55,6 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'ervandew/supertab'
 "easytags 自动更新tags
 "-------------------------------------------------
 "airline{
@@ -208,3 +207,14 @@ set shiftwidth=4
 set softtabstop=4
 " A buffer becomes hidden when it is abandoned
 set hid
+set completeopt=longest,menu
+
+"------------------------------------------------
+" omnicppcomplete configure
+let OmniCpp_MayCompleteDot=1    " 打开  . 操作符
+let OmniCpp_MayCompleteArrow=1  " 打开 -> 操作符
+let OmniCpp_MayCompleteScope=1  " 打开 :: 操作符
+let OmniCpp_NamespaceSearch=1   " 打开命名空间
+let OmniCpp_GlobalScopeSearch=1
+let OmniCpp_DefaultNamespace=["std"]
+let OmniCpp_ShowPrototypeInAbbr=1  " 打开显示函数原型
