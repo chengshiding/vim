@@ -1,3 +1,5 @@
+" My Var
+"let g:PRO_PATH="$HOME/work/"
 "把 <leader> 设置成空格
 let mapleader = "\<Space>"
 let g:mapleader = "\<Space>"
@@ -33,12 +35,13 @@ Bundle 'winmanager'
 Bundle 'bufexplorer.zip'
 Bundle 'minibufexpl.vim'
 Bundle 'vim-BookMarks'
+Bundle 'AutoComplPop'
+Bundle 'omnicppcomplete'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
 Bundle 'derekwyatt/vim-fswitch'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'rdnetto/YCM-Generator'
+"Bundle 'Valloric/YouCompleteMe'
 Bundle 'lookupfile'
 Bundle 'genutils'
 Bundle 'easymotion/vim-easymotion'
@@ -52,6 +55,7 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'ervandew/supertab'
 "easytags 自动更新tags
 "-------------------------------------------------
 "airline{
@@ -68,7 +72,7 @@ Bundle 'jiangmiao/auto-pairs'
  "let g:Powerline_symbols = 'fancy'
 "}
 "------------------------------------------------
-nnoremap <F12> :!$HOME/.vim/tools/lookfile.sh<CR>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR> :YcmGenerateConfig<CR>
+nnoremap <F12> :!$HOME/.vim/tools/lookfile.sh<CR>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR> :!cscope -Rbq<CR>
 set tags=tags;/
 "------------------------------------------------
 " lookupfile setting
@@ -204,22 +208,3 @@ set shiftwidth=4
 set softtabstop=4
 " A buffer becomes hidden when it is abandoned
 set hid
-"------------------------------------------------
-" YouCompleteMe Configure
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-" 按,jd 会跳转到定义
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" 打开vim时不再询问是否加载ycm_extra_conf.py配置
-let g:ycm_confirm_extra_conf=0
-" 补全完成后自动关闭preview窗口
-let g:ycm_autoclose_preview_window_after_completion=1
-" 不显示预览窗口
-set completeopt=longest,menu
-" 语法关键字补全"
-let g:ycm_seed_identifiers_with_syntax=1    
-" 在注释输入中也能补全
-let g:ycm_complete_in_comments = 1
-" 在字符串输入中也能补全
-let g:ycm_complete_in_strings = 1
-" 使用ctags生成的tag文件,性能会下降，所以不启用
-" let g:ycm_collect_identifiers_from_tags_files = 0
