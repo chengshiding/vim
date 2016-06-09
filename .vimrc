@@ -223,5 +223,7 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 " 使用ctags生成的tag文件,性能会下降，所以不启用
 " let g:ycm_collect_identifiers_from_tags_files = 0
-" 修改对C函数的补全快捷键，默认是CTRL + space，修改为ALT + ;  
-let g:ycm_key_invoke_completion = '<C-/>'
+" 修改对C函数的补全快捷键，默认是CTRL + space
+let g:ycm_key_invoke_completion = '<C-t>'
+" 默认使用python2,如果需要补全python3,打开以下选项
+" let g:ycm_python_binary_path = '/usr/bin/python3'
