@@ -218,3 +218,7 @@ let OmniCpp_NamespaceSearch=1   " 打开命名空间
 let OmniCpp_GlobalScopeSearch=1
 let OmniCpp_DefaultNamespace=["std"]
 let OmniCpp_ShowPrototypeInAbbr=1  " 打开显示函数原型
+"------------------------------------------------
+" AutoComplPop Configure
+" 光标移动时不弹出补全项
+let g:AutoComplPop_MappingDriven = 1
