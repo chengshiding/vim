@@ -55,6 +55,10 @@ Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tomasr/molokai'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'mhinz/vim-startify'
+Bundle 'hynek/vim-python-pep8-indent'
+" press F7 key to use vim-flake8
+Bundle 'nvie/vim-flake8'
 "easytags 自动更新tags
 "-------------------------------------------------
 "airline{
