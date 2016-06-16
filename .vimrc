@@ -149,10 +149,10 @@ hi IndentGuidesOdd guibg=red ctermbg=8
 hi IndentGuidesEven guibg=green ctermbg=2
 nnoremap <silent> <Leader>v2 :IndentLinesDisable<CR>:IndentGuidesToggle<CR>
 "------------------------------------------------
-" nnoremap <F2> :set number! number?<CR>
+" nnoremap <F2> :setlocal number! number?<CR>
 " nnoremap <F8> :set hlsearch! hlsearch?<CR>
 " 粘贴代码时取消自动缩进
-set pastetoggle=<F11>
+setlocal pastetoggle=<F11>
 " nnoremap <leader>r :make<CR>
 nnoremap <leader>r :!make<CR>
 " 多窗口改变大小
