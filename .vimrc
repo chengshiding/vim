@@ -58,6 +58,9 @@ Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'nvie/vim-flake8'
 "easytags 自动更新tags
 "-------------------------------------------------
+" startify configure
+let g:startify_change_to_dir = 0
+"-------------------------------------------------
 "airline{
  let g:airline_powerline_fonts = 1
  " 关闭状态显示空白符号计数,这个对我用处不大"
@@ -149,8 +152,8 @@ hi IndentGuidesOdd guibg=red ctermbg=8
 hi IndentGuidesEven guibg=green ctermbg=2
 nnoremap <silent> <Leader>v2 :IndentLinesDisable<CR>:IndentGuidesToggle<CR>
 "------------------------------------------------
-" nnoremap <F2> :setlocal number! number?<CR>
-" nnoremap <F8> :set hlsearch! hlsearch?<CR>
+nnoremap <Leader><F2> :setlocal number! number?<CR>
+nnoremap <Leader><F8> :setlocal hlsearch! hlsearch?<CR>
 " 粘贴代码时取消自动缩进
 setlocal pastetoggle=<F11>
 " nnoremap <leader>r :make<CR>
