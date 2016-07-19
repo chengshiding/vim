@@ -15,7 +15,8 @@ hi SpecialKey	ctermfg=70          ctermbg=None        cterm=None
 hi Directory	ctermfg=57          ctermbg=254         cterm=None
 hi ErrorMsg     ctermfg=160         ctermbg=245         cterm=None
 hi PreProc	    ctermfg=243         ctermbg=None        cterm=Bold
-hi Search	    ctermfg=125         ctermbg=None        cterm=Bold
+hi IncSearch    ctermfg=255         ctermbg=002         cterm=Bold
+hi Search	    ctermfg=225         ctermbg=004         cterm=Bold
 hi Type		    ctermfg=166         ctermbg=None        cterm=Bold
 hi Statement	ctermfg=172         ctermbg=None        cterm=Bold
 hi Comment	    ctermfg=50		    ctermbg=None        cterm=None
