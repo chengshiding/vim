@@ -211,6 +211,7 @@ set shiftwidth=4
 set softtabstop=4
 " A buffer becomes hidden when it is abandoned
 set hid
+set cinoptions=:4,=0,b0
 "------------------------------------------------
 " YouCompleteMe Configure
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'

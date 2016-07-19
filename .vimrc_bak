@@ -215,7 +215,7 @@ set softtabstop=4
 " A buffer becomes hidden when it is abandoned
 set hid
 set completeopt=longest,menu
-
+set cinoptions=:4,=0,b0
 "------------------------------------------------
 " omnicppcomplete configure
 let OmniCpp_MayCompleteDot=1    " 打开  . 操作符
