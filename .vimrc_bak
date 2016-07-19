@@ -59,6 +59,7 @@ Bundle 'mhinz/vim-startify'
 Bundle 'hynek/vim-python-pep8-indent'
 " press F7 key to use vim-flake8
 Bundle 'nvie/vim-flake8'
+Bundle 'davidhalter/jedi-vim'
 "easytags 自动更新tags
 "-------------------------------------------------
 " startify configure
@@ -229,3 +230,6 @@ let OmniCpp_ShowPrototypeInAbbr=1  " 打开显示函数原型
 " AutoComplPop Configure
 " 光标移动时不弹出补全项
 let g:AutoComplPop_MappingDriven = 1
+"------------------------------------------------
+" jedi-vim configure
+let g:jedi#completions_command = "<C-t>"
