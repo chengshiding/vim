@@ -32,7 +32,7 @@ Bundle 'The-NERD-tree'
 Bundle 'winmanager'
 Bundle 'bufexplorer.zip'
 Bundle 'minibufexpl.vim'
-Bundle 'vim-BookMarks'
+Bundle 'MattesGroeger/vim-BookMarks'
 Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
@@ -132,7 +132,7 @@ let g:ctrlp_mruf_max=500
 let g:ctrlp_max_height = 20
 let g:ctrlp_by_filename = 1
 "------------------------------------------------
-let g:vbookmark_bookmarkSaveFile = $HOME . '/.vimbookmark'
+let g:bookmark_sign = '>>'
 "-------------------------------------------------
 " indentLine
 let g:indentLine_enabled = 1
